@@ -15,4 +15,7 @@
   /* make the phone fit to screen height with a ratio of 16:9 */
   width: 506.25px;
   height: 900px;
+
+  /* make the screen scrollable instead of overflowing */
+  overflow-y: scroll;
 }
