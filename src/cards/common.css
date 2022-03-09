@@ -1,0 +1,12 @@
+.card {
+  color: #2D2D2D;
+  background-color: #F2F0EC;
+  border-radius: 0.4rem;
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  margin-bottom: 0.7rem;
+
+  min-height: 5rem;
+}
