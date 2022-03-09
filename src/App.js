@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./app.css";
 
+import Header from './components/header';
 import Forecast from './cards/forecast';
 import SunAndMoon from './cards/sun-and-moon';
 
@@ -9,9 +10,8 @@ class App extends Component {
     return (
       <div className='phone-container'>
         <div className='phone'>
-          TEST
           {/*<Toolbar />*/}
-          {/*<Header />*/}
+          <Header />
           <Forecast />
           <SunAndMoon />
           <Forecast />
