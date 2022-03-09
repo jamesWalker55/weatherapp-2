@@ -1,0 +1,18 @@
+.phone-container {
+  height: 100%;
+  width: 100%;
+
+  /* center the phone */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  color: #F2F0EC;
+  background-color: #272727;
+
+  /* make the phone fit to screen height with a ratio of 16:9 */
+  width: 506.25px;
+  height: 900px;
+}

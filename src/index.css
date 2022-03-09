@@ -1,0 +1,21 @@
+/* Base styling for all elements */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: grey;
+}
+
+/* allow using percentages for height and width  */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* react root element */
+#root {
+  height: 100%;
+  width: 100%;
+}
