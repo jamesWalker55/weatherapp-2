@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './sun-moon.css';
 
 class SunAndMoon extends Component {
@@ -7,7 +6,7 @@ class SunAndMoon extends Component {
     return (
       <div className="card">
         <p>Sun and Moon</p>
-        <p></p>
+        <img src="./sun-moon-images/solar.jpeg" alt="solar graph"></img>
       </div>
     );
   }
