@@ -8,3 +8,21 @@ img{
     padding-top: 0.5rem;
     padding-left: 0.5rem;
 }
+
+.timeDiv{
+    padding-top: 0.5rem;
+    margin-left: 2.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.sunStencil{
+    float:left;
+    width: 40px;
+    height: 40px;
+}
+
+.moonStencil{
+    
+    width: 40px;
+    height: 40px;
+}
