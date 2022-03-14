@@ -10,8 +10,8 @@ class SunAndMoon extends Component {
       <div className="card">
         <p>Sun and Moon</p>
         <img src={imagePath} alt="solar graph"></img>
-        <FetchSunriseTime></FetchSunriseTime>
-        <FetchSunsetTime></FetchSunsetTime>
+          <div><FetchSunriseTime></FetchSunriseTime></div>
+          <div><FetchSunsetTime></FetchSunsetTime></div>
       </div>
     );
   }

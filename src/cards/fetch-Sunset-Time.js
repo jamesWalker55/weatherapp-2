@@ -1,6 +1,7 @@
 import { div } from 'prelude-ls'
 import React from 'react';
-import imagePath from './sun-moon-images/sun-stencil.png'
+import imagePath from './sun-moon-images/moon-stencil.png';
+
 
 
 
@@ -25,7 +26,11 @@ export default class FetchSunsetTime extends React.Component {
               :
                <div>
                    <img class='moonStencil' src={imagePath}></img>
-                   <div class='sunsetTimeDiv'>Sunset: <br></br>{(this.state.time.toLocaleTimeString("en-US"))}</div>
+                   <div class='sunsetTimeDiv'>
+                       Sunset: 
+                    <br></br>
+                    {(this.state.time.toLocaleTimeString("en-US"))}
+                    </div>
                 </div>
                 }
 

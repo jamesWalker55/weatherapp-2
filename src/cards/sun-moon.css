@@ -5,30 +5,41 @@ p{
 
 
 img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
     padding-top: 0.5rem;
     padding-left: 0.5rem;
+    border-radius: 5%;
 }
 
 .sunriseTimeDiv{
-    padding-top: 0.5rem;
-    margin-left: 2.5rem;
+
+    padding-top: 0.7rem;
+    margin-left: 2.8rem;
     padding-bottom: 0.5rem;
 }
 
 .sunsetTimeDiv{
-    padding-top: 0.5rem;
-    margin-right: 2.5rem;
-    padding-bottom: 0.5rem;
+    /* float:right; */
+    margin-top: -45px;
+    margin-left: 22rem;
+
 }
 
 .sunStencil{
     float:left;
+    /* padding-top: 1em; */
     width: 40px;
     height: 40px;
+
 }
 
 .moonStencil{
     float: right;
+    /* padding-right: 0.5rem; */
+    
     width: 40px;
     height: 40px;
+    margin-top: -10px;
 }
