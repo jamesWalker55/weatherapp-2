@@ -23,7 +23,7 @@ img{
 .sunsetTimeDiv{
     /* float:right; */
     margin-top: -45px;
-    margin-left: 22rem;
+    margin-left: 21rem;
 
 }
 
@@ -42,4 +42,5 @@ img{
     width: 40px;
     height: 40px;
     margin-top: -10px;
+    margin-right: 0.5rem;
 }
