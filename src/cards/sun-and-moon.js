@@ -9,7 +9,12 @@ class SunAndMoon extends Component {
     return (
       <div className="card">
         <p>Sun and Moon</p>
-        <img src={imagePath} alt="solar graph"></img>
+        {/* <img src={imagePath} alt="solar graph"></img> */}
+        <br></br>
+          <div class='barBorder'>
+            <div class='barColour'></div>
+          </div>
+          <br></br>
           <div><FetchSunriseTime></FetchSunriseTime></div>
           <div><FetchMoonriseTime></FetchMoonriseTime></div>
       </div>

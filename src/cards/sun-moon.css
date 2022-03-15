@@ -43,3 +43,19 @@ img{
     margin-top: -10px;
     margin-right: 0.5rem;
 }
+
+.barBorder {
+    background-color: rgb(169, 165, 165);
+    border-radius: 3%;
+    height: 3px;
+    /* padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 0.7rem; */
+}
+.barColour {
+    background-color: rgb(246, 195, 102);
+    border-radius: 3%;
+    /* width: 10%; */
+    height: 3px;
+
+}
