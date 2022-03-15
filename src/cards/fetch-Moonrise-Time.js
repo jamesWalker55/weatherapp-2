@@ -29,9 +29,9 @@ export default class FetchMoonriseTime extends React.Component {
                    <img class='moonStencil' src={imagePath}></img>
                    <div class='sunsetTimeDiv'>
                     {/* <br></br> */}
-                    {(this.state.moonriseTime.toLocaleTimeString("en-US"))} ↑
+                    ↑ {(this.state.moonriseTime.toLocaleTimeString("en-US"))} 
                     <br></br>
-                    {(this.state.moonsetTime.toLocaleTimeString("en-US"))} ↓
+                    ↓ {(this.state.moonsetTime.toLocaleTimeString("en-US"))}
                     </div>
                 </div>
                 }
