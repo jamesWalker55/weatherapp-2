@@ -14,22 +14,21 @@ img{
 }
 
 .sunriseTimeDiv{
-
+    font-size: 12px;
     padding-top: 0.7rem;
     margin-left: 2.8rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.9rem;
 }
 
 .sunsetTimeDiv{
-    /* float:right; */
-    margin-top: -45px;
-    margin-left: 21rem;
+    font-size: 12px;
+    margin-top: -43px;
+    margin-left: 20.7rem;
 
 }
 
 .sunStencil{
     float:left;
-    /* padding-top: 1em; */
     width: 40px;
     height: 40px;
 
