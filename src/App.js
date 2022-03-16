@@ -4,6 +4,7 @@ import "./app.css";
 import Header from './components/header';
 import Forecast from './cards/forecast';
 import SunAndMoon from './cards/sun-and-moon';
+import StarMap from './cards/star-map';
 
 import tempApiData from './data/temp-api-data.json';
 
@@ -17,7 +18,7 @@ class App extends Component {
           <Header apiData={tempApiData} />
           <Forecast apiData={tempApiData} />
           <SunAndMoon apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
+          <StarMap apiData={tempApiData} />
           <Forecast apiData={tempApiData} />
           <Forecast apiData={tempApiData} />
           <Forecast apiData={tempApiData} />
