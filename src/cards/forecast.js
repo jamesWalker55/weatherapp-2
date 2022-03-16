@@ -5,8 +5,6 @@ import './forecast.css';
 import circleSvgPath from "../assets/circle-info-solid.svg";
 import HourlyChart from './parts/hourly-chart'
 
-import tempApiData from './parts/temp-api-data.json';
-
 class Forecast extends Component {
   render() {
     return (
@@ -21,7 +19,7 @@ class Forecast extends Component {
         </div>
         <h2>Forecast</h2>
         <div className='graphs'>
-          <HourlyChart apiData={tempApiData} type="line" source="temp" />
+          <HourlyChart apiData={this.props.apiData} type="line" source="temp" />
           qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty qwerty<br />
           qwerty<br />
           qwerty<br />
