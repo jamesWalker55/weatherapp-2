@@ -13,20 +13,20 @@ img {
 }
 
 .sunriseTimeDiv {
+  font-size: 12px;
   padding-top: 0.7rem;
   margin-left: 2.8rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.9rem;
 }
 
 .sunsetTimeDiv {
-  /* float:right; */
-  margin-top: -45px;
-  margin-left: 21rem;
+  font-size: 12px;
+  margin-top: -43px;
+  margin-left: 20.7rem;
 }
 
 .sunStencil {
   float: left;
-  /* padding-top: 1em; */
   width: 40px;
   height: 40px;
 }
@@ -34,8 +34,24 @@ img {
 .moonStencil {
   float: right;
   /* padding-right: 0.5rem; */
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   margin-top: -10px;
   margin-right: 0.5rem;
+}
+
+.barBorder {
+  background-color: rgb(169, 165, 165);
+  border-radius: 3%;
+  height: 3px;
+  /* padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-left: 0.7rem; */
+}
+
+.barColour {
+  background-color: rgb(246, 195, 102);
+  border-radius: 3%;
+  /* width: 10%; */
+  height: 3px;
 }
