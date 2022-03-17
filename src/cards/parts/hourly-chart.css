@@ -11,6 +11,7 @@
 
 .chart .axis {
   position: absolute;
+  background: linear-gradient(90deg, #F2F0ECFF 5%, #F2F0EC00 15%);
 }
 
 .chart .main {
