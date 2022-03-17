@@ -1,0 +1,25 @@
+.rise-set-info {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.rise-set-info .icon {
+  opacity: 0.7;
+}
+
+.rise-set-info .times {
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+.rise-set-info .time {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  align-items: center;
+}
