@@ -1,6 +1,5 @@
 import React from "react";
 import SemiCircleProgressBar from "react-progressbar-semicircle";
-import imagePath from "./sun-moon-images/sun-transparent-background.png"
 
 
 // check the git page for altitude range (0 = horizon, pi/2 is highest point)
@@ -26,7 +25,6 @@ class ProgressBar extends React.Component {
                 <div className='barColour' style={{width: `${this.state.azimuthVal}%`}}></div>
             </div>  */}
             <div className='semiCircleDiv'>
-                <img className='sunSprite' src={imagePath} alt="sun image"></img>
                 <SemiCircleProgressBar 
                 percentage={this.state.azimuthVal} 
                 strokeWidth={5} 
