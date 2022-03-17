@@ -24,8 +24,8 @@ export default class FetchSunriseTime extends React.Component {
           <div>loading...</div>
           :
           <div>
-            <img class='sunStencil' src={imagePath}></img>
-            <div class='sunriseTimeDiv'>
+            <img className='sunStencil' src={imagePath}></img>
+            <div className='sunriseTimeDiv'>
               {/* <br></br> */}
               {(this.state.sunriseTime.toLocaleTimeString("en-US"))} ↑
               <br></br>
