@@ -1,0 +1,18 @@
+.chart .chartjs {
+  height: 7rem;
+}
+
+.chart .chart-title {
+  color: #515151;
+  position: absolute;
+  right: 0.8rem;
+  font-weight: bold;
+}
+
+.chart .axis {
+  position: absolute;
+}
+
+.chart .main {
+  margin-left: -0.5rem;
+}
