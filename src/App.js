@@ -17,19 +17,6 @@ class App extends Component {
           <Header apiData={tempApiData} />
           <Forecast apiData={tempApiData} />
           <SunAndMoon apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
-          <Forecast apiData={tempApiData} />
         </div>
       </div>
     );
