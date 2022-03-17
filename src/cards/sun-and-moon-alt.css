@@ -1,0 +1,35 @@
+.sun-and-moon .arc-container {
+  position: relative;
+}
+
+.sun-and-moon .arc {
+  width: 100%;
+}
+
+.sun-and-moon .arc.active {
+  clip-path: inset(0 calc(100% - 100% * var(--progress)) 0 0);
+  position: absolute;
+}
+
+.sun-and-moon .arc-container {
+  margin: 0.8rem;
+}
+
+.sun-and-moon .rise-set-times {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.arc-container .icon {
+  /* make the icon yellow */
+  filter:
+    invert(50%)
+    sepia()
+    saturate(300%)
+    hue-rotate(-15deg)
+    brightness(150%);
+
+  /*opacity: 0.2;*/
+  position: absolute;
+}

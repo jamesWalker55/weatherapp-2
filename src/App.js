@@ -3,7 +3,7 @@ import "./app.css";
 
 import Header from './components/header';
 import Forecast from './cards/forecast';
-import SunAndMoon from './cards/sun-and-moon';
+import SunAndMoonAlt from './cards/sun-and-moon-alt';
 import StarMap from './cards/star-map';
 
 import fetchApiData from './openweathermap';
@@ -40,7 +40,7 @@ class App extends Component {
             {/*<Toolbar apiData={this.state.apiData} />*/}
             <Header apiData={this.state.apiData} />
             <Forecast apiData={this.state.apiData} />
-            <SunAndMoon apiData={this.state.apiData} />
+            <SunAndMoonAlt apiData={this.state.apiData} />
             <StarMap apiData={this.state.apiData} />
           </div>
         </div>
