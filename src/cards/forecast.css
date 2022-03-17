@@ -1,7 +1,11 @@
-.card.forecast .graphs {
+.forecast .icon {
+  opacity: 0.4;
+}
+
+.forecast .graphs {
   width: 100%;
 }
 
-.card.forecast .graph {
+.forecast .graph {
   height: 50vh;
 }

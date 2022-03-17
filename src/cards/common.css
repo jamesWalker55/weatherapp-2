@@ -12,10 +12,6 @@
   min-height: 5rem;
 }
 
-.card .icon {
-  opacity: 0.4;
-}
-
 .card h2 {
   color: #515151;
   font-weight: bold;
