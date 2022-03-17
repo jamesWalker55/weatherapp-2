@@ -1,4 +1,5 @@
 import React from "react";
+import SemiCircleProgressBar from "react-progressbar-semicircle";
 
 
 // check the git page for altitude range (0 = horizon, pi/2 is highest point)
@@ -18,10 +19,20 @@ class ProgressBar extends React.Component {
     render(){
     return(
 
-        <div>
-            <div className='barBorder'>
+        // here below is the old progress bar, i think it should stay here in case
+        <div> 
+            {/* <div className='barBorder'>
                 <div className='barColour' style={{width: `${this.state.azimuthVal}%`}}></div>
-            </div> 
+            </div>  */}
+            <div className='semiCircleDiv'>
+                <SemiCircleProgressBar 
+                percentage={this.state.azimuthVal} 
+                strokeWidth={5} 
+                stroke={'orange'}
+                diameter={400} 
+                />
+            </div>
+            
         </div>
     );
         
