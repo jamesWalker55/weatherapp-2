@@ -1,6 +1,5 @@
 .card.forecast .graphs {
   width: 100%;
-  overflow-x: scroll;
 }
 
 .card.forecast .graph {

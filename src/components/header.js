@@ -7,8 +7,8 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="location">Mile End Rd (E1 4NS)</div>
-        <div className="temperature">14°</div>
-        <div className="status-text">Partly cloudy</div>
+        <div className="temperature">{Math.round(this.props.apiData.current.temp - 273.15)}°</div>
+        <div className="status-text">{this.props.apiData.current.weather[0].main}</div>
       </div>
     );
   }
