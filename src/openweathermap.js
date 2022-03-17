@@ -7,6 +7,8 @@ const LOCATIONS = {
 };
 
 async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
+  console.log("Fetching API data from openweathermap");
+
   // construct the query string
   const query = new URLSearchParams({
     lat: location[0],
