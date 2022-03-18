@@ -5,10 +5,14 @@ import { queryLocation } from 'helpers/openweathermap';
 import './location-select.css';
 
 class LocationOption extends Component {
+  setLocation = ()=>{
+    this.props.setLocationCallback(this.props.location);
+  }
+
   render() {
     const location = this.props.location;
     return (
-      <div className='option'>
+      <div className='option' onClick={this.setLocation}>
         <div className='right-side'>
           <span className='state'>{location.state}</span>
           <span className='lat-lon'>({location.lat.toFixed(2)}, {location.lon.toFixed(2)})</span>
@@ -68,7 +72,13 @@ export default class LocationSelect extends Component {
         );
       } else {
         const options = this.state.results.map(
-          loc => <LocationOption location={loc} key={loc.lat.toString() + loc.lon.toString()} />
+          loc => (
+            <LocationOption
+              location={loc}
+              key={loc.lat.toString() + loc.lon.toString()}
+              setLocationCallback={this.props.setLocationCallback}
+            />
+          )
         );
         results = (
           <div className='results'>
