@@ -16,11 +16,13 @@ class App extends Component {
       this.state = {
         apiData: tempApiData,
         location: null,
+        choosingLocation: false,
       };
     } else {
       this.state = {
         apiData: null,
         location: null,
+        choosingLocation: false,
       };
 
       this.refresh();
@@ -41,22 +43,44 @@ class App extends Component {
     });
   };
 
+  chooseLocation = () => {
+    this.setState({ choosingLocation: true });
+  };
+
+  closeLocationSelector = () => {
+    this.setState({ choosingLocation: false });
+  };
+
   setLocation = async (location) => {
-    this.setState({ location: location });
+    this.setState({ location: location, choosingLocation: false });
 
     await this.refresh();
   };
 
   render() {
+    let locationPopup;
+
+    if (this.state.choosingLocation) {
+      locationPopup = (
+        <LocationSelect
+          setLocationCallback={this.setLocation}
+          closeCallback={this.closeLocationSelector}
+        />
+      );
+    } else {
+      locationPopup = null;
+    }
+
     return (
       <div className='phone-container'>
         <div className='phone'>
           <Toolbar
             refreshCallback={this.refresh}
-            setLocationCallback={this.setLocation}
+            chooseLocationCallback={this.chooseLocation}
           />
           <WeatherDisplay apiData={this.state.apiData} />
         </div>
+        {locationPopup}
       </div>
     );
   }

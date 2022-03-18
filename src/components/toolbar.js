@@ -5,16 +5,14 @@ import Button from './parts/button';
 import './toolbar.css';
 
 import refreshIcon from 'assets/arrows-rotate-solid.svg';
+import locationIcon from 'assets/location-dot-solid.svg';
 
 export default class Toolbar extends Component {
-  refresh = async () => {
-    await this.props.refreshCallback();
-  }
-
   render() {
     return (
       <div className='toolbar'>
-        <Button name="Refresh" icon={refreshIcon} callback={this.refresh} animation='rotate' />
+        <Button name="Change location" icon={locationIcon} callback={this.props.chooseLocationCallback} />
+        <Button name="Refresh" icon={refreshIcon} callback={this.props.refreshCallback} animation='rotate' />
       </div>
     );
   }
