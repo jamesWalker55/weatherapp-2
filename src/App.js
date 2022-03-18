@@ -4,7 +4,7 @@ import "./app.css";
 import Toolbar from './components/toolbar';
 import WeatherDisplay from './weather-display';
 
-import fetchApiData from './openweathermap';
+import { fetchData } from './openweathermap';
 import tempApiData from './data/temp-api-data.json';
 
 class App extends Component {
@@ -30,9 +30,9 @@ class App extends Component {
     let data;
 
     if (this.state.location) {
-      data = await fetchApiData(this.state.location);
+      data = await fetchData(this.state.location);
     } else {
-      data = await fetchApiData();
+      data = await fetchData();
     }
 
     this.setState({

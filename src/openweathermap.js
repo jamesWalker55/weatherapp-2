@@ -13,7 +13,7 @@ const LOCATIONS = {
   },
 };
 
-async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
+export async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
   console.log("Fetching API data from openweathermap");
 
   // construct the query string
@@ -40,7 +40,7 @@ async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
   return data;
 }
 
-async function queryLocation(locationName, country = "gb", limit = 5, key = API_KEY) {
+export async function queryLocation(locationName, country = "gb", limit = 5, key = API_KEY) {
   if (locationName.includes(',')) throw `Location name must not contain commas: ${locationName}`;
 
   console.log("Querying location with openweathermap:", locationName, country);
@@ -68,5 +68,3 @@ async function queryLocation(locationName, country = "gb", limit = 5, key = API_
 
   return data;
 }
-
-export default fetchData;
