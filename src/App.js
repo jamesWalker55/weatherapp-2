@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import "./app.css";
 
-import Toolbar from './components/toolbar';
+import Toolbar from 'components/toolbar';
 import WeatherDisplay from './weather-display';
+import LocationSelect from 'components/location-select';
 
-import { fetchData } from './openweathermap';
-import tempApiData from './data/temp-api-data.json';
+import { fetchData } from 'helpers/openweathermap';
+import tempApiData from 'data/temp-api-data.json';
 
 class App extends Component {
   constructor(props) {
