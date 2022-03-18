@@ -14,10 +14,12 @@ class App extends Component {
     if (this.props.useTestData) {
       this.state = {
         apiData: tempApiData,
+        location: null,
       };
     } else {
       this.state = {
         apiData: null,
+        location: null,
       };
 
       this.refresh();
@@ -25,18 +27,33 @@ class App extends Component {
   }
 
   refresh = async () => {
-    const data = await fetchApiData();
+    let data;
+
+    if (this.state.location) {
+      data = await fetchApiData(this.state.location);
+    } else {
+      data = await fetchApiData();
+    }
 
     this.setState({
       apiData: data
     });
   };
 
+  setLocation = async (location) => {
+    this.setState({ location: location });
+
+    await this.refresh();
+  };
+
   render() {
     return (
       <div className='phone-container'>
         <div className='phone'>
-          <Toolbar refreshCallback={this.refresh} />
+          <Toolbar
+            refreshCallback={this.refresh}
+            setLocationCallback={this.setLocation}
+          />
           <WeatherDisplay apiData={this.state.apiData} />
         </div>
       </div>
