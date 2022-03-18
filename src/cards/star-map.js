@@ -13,12 +13,11 @@ class StarMap extends Component {
           <iframe
             width="100%"
             height="400rem"
-            frameborder="0"
+            frameBorder={0}
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            src="http://slowe.github.io/VirtualSky/embed?&projection=stereo&keyboard=false&showstarlabels=true&showdate=false&showposition=false&live=true&az=336.5"
-            allowTransparency="true" />
+            marginHeight={0}
+            marginWidth={0}
+            src="http://slowe.github.io/VirtualSky/embed?&projection=stereo&keyboard=false&showstarlabels=true&showdate=false&showposition=false&live=true&az=336.5" />
         </div>
       </div>
     );
