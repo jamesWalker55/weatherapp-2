@@ -4,7 +4,13 @@ const LOCATION_URL = 'http://api.openweathermap.org/geo/1.0/direct';
 const API_KEY = 'b94e53a435a10994c9f671ff48ecbc39';
 
 const LOCATIONS = {
-  LONDON: [51.5072, 0.1276],
+  LONDON: {
+    "name": "London",
+    "lat": 51.5073219,
+    "lon": -0.1276474,
+    "country": "GB",
+    "state": "England",
+  },
 };
 
 async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
@@ -12,8 +18,8 @@ async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
 
   // construct the query string
   const query = new URLSearchParams({
-    lat: location[0],
-    lon: location[1],
+    lat: location.lat,
+    lon: location.lon,
     appid: key,
   });
 
