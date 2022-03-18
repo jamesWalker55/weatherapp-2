@@ -104,7 +104,7 @@ export default class HourlyChart extends Component {
               const date = new Date(parseInt(label) * 1000);
               if (labelId !== 0 && date.getHours() !== 0) return null;
 
-              return `${date.getDay()} ${date.toLocaleString('default', { month: 'short' })}`;
+              return `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}`;
             },
             padding: 0,
             display: this.props.showDates,
