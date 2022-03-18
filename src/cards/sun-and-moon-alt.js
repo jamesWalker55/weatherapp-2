@@ -13,9 +13,33 @@ class Arc extends Component {
   // make this component redraw itself every second
   // updates this.state.now
   componentDidMount() {
+    // callback to update `this.state.now` and `this.state.activeIndicator` regularly
+    const callback = () => {
+      const now = Date.now() / 1000;
+
+      const riseSetTimes = this.props.riseSetTimes;
+      let activeIndicator;
+
+      if (riseSetTimes.sun[0] <= now && now < riseSetTimes.sun[1]) {
+        activeIndicator = 'sun';
+      } else if (riseSetTimes.moon[0] <= now && now < riseSetTimes.moon[1]) {
+        activeIndicator = 'moon';
+      } else {
+        activeIndicator = null;
+      }
+
+      this.setState({
+        now: now,
+        activeIndicator: activeIndicator,
+      });
+    };
+
+    // call on startup to set the state immediately
+    callback();
+
     this.intervalId = setInterval(
-      () => this.setState({ now: Date.now() / 10 }),
-      20  // miliseconds
+      callback,
+      30000  // miliseconds
     );
   }
 
@@ -23,32 +47,48 @@ class Arc extends Component {
     clearInterval(this.intervalId);
   }
 
-  // temp, replace later
+  // return the progress of the arc as a number between 0 and 1
   getProgress() {
-    if (!this.state) return 0;
+    if (!this.state || !this.state.activeIndicator) return 0;
 
-    const progress = (this.state.now % 100) / 100;
+    const riseSetTimes = this.props.riseSetTimes;
 
-    return progress;
+    if (this.state.activeIndicator === 'sun') {
+      return (this.state.now - riseSetTimes.sun[0]) / (riseSetTimes.sun[1] - riseSetTimes.sun[0]);
+    } else {
+      return (this.state.now - riseSetTimes.moon[0]) / (riseSetTimes.moon[1] - riseSetTimes.moon[0]);
+    }
   }
 
   render() {
-    const progress = this.getProgress();
+    if (!this.state || this.state.activeIndicator === null) {
+      // not displaying sun or moon
 
-    const arcClipPath = `inset(0 ${(1 - progress) * 100}% 0 0)`;
+      return (
+        <div className='arc-container'>
+          <img src={inactiveArc} className='arc inactive' />
+        </div>
+      );
+    } else {
+      // displaying either sun or moon
 
-    return (
-      <div className='arc-container'>
-        <img src={activeArc} className='arc active' style={{ clipPath: arcClipPath }} />
-        <img src={inactiveArc} className='arc inactive' />
-        <ArcIcon icon={sunIcon} progress={progress} />
-      </div>
-    );
+      const progress = this.getProgress();
+      const arcClipPath = `inset(0 ${(1 - progress) * 100}% 0 0)`;
+
+      return (
+        <div className='arc-container'>
+          <img src={activeArc} className='arc active' style={{ clipPath: arcClipPath }} />
+          <img src={inactiveArc} className='arc inactive' />
+          <ArcIcon icon={this.state.activeIndicator === 'sun' ? sunIcon : moonIcon} progress={progress} />
+        </div>
+      );
+    }
+
   }
 }
 
 class ArcIcon extends Component {
-  /** progress is a number from 0 to 1 */
+  // given the progress from 0 to 1, calculate the x, y position of the icon
   getArcIconPosition(progress) {
     // constants
     const xMin = -0.02;
@@ -59,7 +99,7 @@ class ArcIcon extends Component {
     const s = 3.2;
     const w = 0.93;
 
-    // position of sun, from 0.0 to 1.0
+    // position of icon, from 0.0 to 1.0
     const xPre = progress;
     const yPre = s * (c + Math.sqrt(0.25 - ((progress - 0.5) * w) ** 2));
 
@@ -81,20 +121,48 @@ class ArcIcon extends Component {
 }
 
 export default class SunAndMoonAlt extends Component {
-  constructor(props) {
-    super(props);
-  }
+  getRiseSetTimes = () => {
+    const now = this.props.apiData.current.dt;
+    const days = this.props.apiData.daily;
+
+    const times = {
+      sun: null,
+      moon: null,
+    };
+
+    for (let i = 0; i < days.length; i++) {
+      if (now < days[i].sunset) {
+        times.sun = [days[i].sunrise, days[i].sunset];
+        break;
+      }
+    }
+
+    for (let i = 0; i < days.length; i++) {
+      if (now < days[i].moonset) {
+        if (i > 0) {
+          times.moon = [days[i - 1].moonrise, days[i].moonset];
+        } else {
+          times.moon = [days[i].moonrise - 86400, days[i].moonset];
+        }
+        break;
+      }
+    }
+
+    return times;
+  };
 
   render() {
+    const riseSetTimes = this.getRiseSetTimes();
+
     return (
       <div className="card sun-and-moon">
         <h2>Sun and Moon</h2>
 
-        <Arc />
+        <Arc riseSetTimes={riseSetTimes} />
 
         <div className='rise-set-times'>
-          <RiseSetInfo icon={sunIcon} riseTime={1647537662949} setTime={1647537662949 + 60 * 5} />
-          <RiseSetInfo icon={moonIcon} riseTime={1647537662949} setTime={1647537662949 + 60 * 5} />
+          <RiseSetInfo icon={sunIcon} riseTime={riseSetTimes.sun[0]} setTime={riseSetTimes.sun[1]} />
+          <RiseSetInfo icon={moonIcon} riseTime={riseSetTimes.moon[0]} setTime={riseSetTimes.moon[1]} />
         </div>
       </div>
     );
