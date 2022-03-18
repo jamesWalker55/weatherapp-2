@@ -5,7 +5,7 @@ import Header from './components/header';
 import Forecast from './cards/forecast';
 import SunAndMoonAlt from './cards/sun-and-moon-alt';
 import StarMap from './cards/star-map';
-import APOD from './cards/APOD';
+import DailyPicture from './cards/daily-picture';
 
 import fetchApiData from './openweathermap';
 
@@ -43,7 +43,7 @@ class App extends Component {
             <Forecast apiData={this.state.apiData} />
             <SunAndMoonAlt apiData={this.state.apiData} />
             <StarMap apiData={this.state.apiData} />
-          	<APOD apiData={tempApiData} />
+          	<DailyPicture apiData={tempApiData} />
           </div>
         </div>
       );
