@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./app.css";
 
+import Toolbar from './components/toolbar';
 import WeatherDisplay from './weather-display';
 
 import fetchApiData from './openweathermap';
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className='phone-container'>
         <div className='phone'>
+          <Toolbar refreshCallback={this.refresh} />
           <WeatherDisplay apiData={this.state.apiData} />
         </div>
       </div>

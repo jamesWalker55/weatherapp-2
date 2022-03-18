@@ -1,0 +1,27 @@
+.button {
+  display: flex;
+
+  opacity: 0.8;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:active {
+  opacity: 0.5;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button.rotate {
+  animation: rotate 0.3s linear infinite;
+}

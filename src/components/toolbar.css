@@ -1,0 +1,11 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+}
+
+.toolbar .icon {
+  /* make icons white */
+  filter: invert();
+}
