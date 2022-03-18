@@ -4,10 +4,10 @@ import RiseSetInfo from './parts/rise-set-info';
 import './common.css';
 import './sun-and-moon-alt.css';
 
-import activeArc from '../assets/sun-moon-active.png';
-import inactiveArc from '../assets/sun-moon-inactive.png';
-import sunIcon from '../assets/sun-solid.svg';
-import moonIcon from '../assets/moon-solid.svg';
+import activeArc from 'assets/sun-moon-active.png';
+import inactiveArc from 'assets/sun-moon-inactive.png';
+import sunIcon from 'assets/sun-solid.svg';
+import moonIcon from 'assets/moon-solid.svg';
 
 class Arc extends Component {
   constructor(props) {

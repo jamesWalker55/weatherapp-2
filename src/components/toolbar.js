@@ -4,7 +4,7 @@ import Button from './parts/button';
 
 import './toolbar.css';
 
-import refreshIcon from '../assets/arrows-rotate-solid.svg';
+import refreshIcon from 'assets/arrows-rotate-solid.svg';
 
 export default class Toolbar extends Component {
   refresh = async () => {

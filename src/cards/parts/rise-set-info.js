@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import './rise-set-info.css';
 
-import upIcon from '../../assets/arrow-up-solid.svg';
-import downIcon from '../../assets/arrow-down-solid.svg';
+import upIcon from 'assets/arrow-up-solid.svg';
+import downIcon from 'assets/arrow-down-solid.svg';
 
 function timestampToTimeString(timestamp) {
   const date = new Date(timestamp * 1000);

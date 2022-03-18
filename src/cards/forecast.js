@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './common.css';
 import './forecast.css';
-import circleSvgPath from "../assets/circle-info-solid.svg";
+import circleSvgPath from "assets/circle-info-solid.svg";
 import HourlyChart from './parts/hourly-chart';
 
 class Forecast extends Component {
