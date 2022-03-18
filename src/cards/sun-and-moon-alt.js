@@ -10,8 +10,16 @@ import sunIcon from '../assets/sun-solid.svg';
 import moonIcon from '../assets/moon-solid.svg';
 
 class Arc extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      now: Date.now() / 1000,
+      activeIndicator: null,
+    };
+  }
+
   // make this component redraw itself every second
-  // updates this.state.now
   componentDidMount() {
     // callback to update `this.state.now` and `this.state.activeIndicator` regularly
     const callback = () => {
@@ -49,7 +57,7 @@ class Arc extends Component {
 
   // return the progress of the arc as a number between 0 and 1
   getProgress() {
-    if (!this.state || !this.state.activeIndicator) return 0;
+    if (!this.state.activeIndicator) return 0;
 
     const riseSetTimes = this.props.riseSetTimes;
 
@@ -61,7 +69,7 @@ class Arc extends Component {
   }
 
   render() {
-    if (!this.state || this.state.activeIndicator === null) {
+    if (!this.state.activeIndicator) {
       // not displaying sun or moon
 
       return (
