@@ -1,4 +1,5 @@
-const API_URL = 'https://api.openweathermap.org/data/2.5/onecall';
+const DATA_URL = 'https://api.openweathermap.org/data/2.5/onecall';
+const LOCATION_URL = 'http://api.openweathermap.org/geo/1.0/direct';
 
 const API_KEY = 'b94e53a435a10994c9f671ff48ecbc39';
 
@@ -18,7 +19,36 @@ async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
 
   // do the fetch
   const res = await fetch(
-    API_URL + "?" + query.toString(),
+    DATA_URL + "?" + query.toString(),
+    {
+      method: 'GET',
+    }
+  );
+
+  // check status code
+  if (res.status !== 200) throw res;
+
+  // get the data
+  const data = await res.json();
+
+  return data;
+}
+
+async function queryLocation(locationName, country = "gb", limit = 5, key = API_KEY) {
+  if (locationName.includes(',')) throw `Location name must not contain commas: ${locationName}`;
+
+  console.log("Querying location with openweathermap:", locationName, country);
+
+  // construct the query string
+  const query = new URLSearchParams({
+    q: `${locationName},${country}`,
+    limit: limit,
+    appid: key,
+  });
+
+  // do the fetch
+  const res = await fetch(
+    LOCATION_URL + "?" + query.toString(),
     {
       method: 'GET',
     }
