@@ -19,13 +19,17 @@ class App extends Component {
         apiData: null,
       };
 
-      fetchApiData().then((data) => {
-        this.setState({
-          apiData: data
-        });
-      });
+      this.refresh();
     }
   }
+
+  refresh = async () => {
+    const data = await fetchApiData();
+
+    this.setState({
+      apiData: data
+    });
+  };
 
   render() {
     return (
