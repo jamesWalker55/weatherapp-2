@@ -6,7 +6,7 @@ import './star-map.css';
 class StarMap extends Component {
   render() {
     return (
-      <div className="card star-map">
+      <div className="card dark star-map">
         <h2>Star Map (Interactive)</h2>
 
         <div className='frame-container'>
