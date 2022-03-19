@@ -3,7 +3,7 @@ const LOCATION_URL = 'http://api.openweathermap.org/geo/1.0/direct';
 
 const API_KEY = 'b94e53a435a10994c9f671ff48ecbc39';
 
-const LOCATIONS = {
+export const LOCATIONS = {
   LONDON: {
     "name": "London",
     "lat": 51.5073219,

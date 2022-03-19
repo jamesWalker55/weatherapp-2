@@ -5,7 +5,7 @@ import Toolbar from 'components/toolbar';
 import WeatherDisplay from './weather-display';
 import LocationSelect from 'components/location-select';
 
-import { fetchData } from 'helpers/openweathermap';
+import { fetchData, LOCATIONS } from 'helpers/openweathermap';
 import tempApiData from 'data/temp-api-data.json';
 
 class App extends Component {
@@ -15,18 +15,32 @@ class App extends Component {
     if (this.props.useTestData) {
       this.state = {
         apiData: tempApiData,
-        location: null,
+        location: this.getLocation(),
         choosingLocation: false,
       };
     } else {
       this.state = {
         apiData: null,
-        location: null,
+        location: this.getLocation(),
         choosingLocation: false,
       };
 
       this.refresh();
     }
+  }
+
+  getLocation() {
+    const defaultLocation = LOCATIONS.LONDON;
+
+    try {
+      const sessionLocation = JSON.parse(window.sessionStorage.getItem("weather-location"));
+
+      if (sessionLocation) return sessionLocation;
+    } catch (e) {
+      // do nothing
+    }
+
+    return defaultLocation;
   }
 
   refresh = async () => {
@@ -53,6 +67,8 @@ class App extends Component {
 
   setLocation = async (location) => {
     this.setState({ location: location, choosingLocation: false });
+
+    window.sessionStorage.setItem("weather-location", JSON.stringify(location));
 
     await this.refresh();
   };
