@@ -1,3 +1,21 @@
-# Weather App with React
-![Screenshot_1](https://user-images.githubusercontent.com/91543268/154504488-f98b9b5f-df43-4567-aa6c-9232fa09560a.png)
-![Screenshot_2](https://user-images.githubusercontent.com/91543268/154504510-cd6feeff-d8e0-4150-ba79-6ec436a76a07.png)
+# Weather App Concept
+
+![](public/README0.png)
+
+This is a weather app concept built using React.
+
+## Setup
+
+```bash
+# clone the repository
+git clone git@github.com:jamesWalker55/weatherapp-2.git
+
+# go into the new folder
+cd weatherapp-2
+
+# install the required modules
+npm install
+
+# start the live server
+npm run start
+```
