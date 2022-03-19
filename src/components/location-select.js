@@ -5,9 +5,9 @@ import { queryLocation } from 'helpers/openweathermap';
 import './location-select.css';
 
 class LocationOption extends Component {
-  setLocation = ()=>{
+  setLocation = () => {
     this.props.setLocationCallback(this.props.location);
-  }
+  };
 
   render() {
     const location = this.props.location;
@@ -38,6 +38,7 @@ export default class LocationSelect extends Component {
 
     this.setState({ search: searchText });
 
+    // call api after 0.5 seconds of not typing
     if (this.timeout) clearTimeout(this.timeout);
 
     this.timeout = setTimeout(() => {
@@ -45,6 +46,7 @@ export default class LocationSelect extends Component {
     }, 500);
   };
 
+  // call api and update results list
   doSearch = async (text) => {
     if (text.trim().length === 0) {
       // empty search query
@@ -70,6 +72,7 @@ export default class LocationSelect extends Component {
 
   render() {
     let results;
+
     if (this.state.results) {
       if (this.state.results.length === 0) {
         results = (
@@ -93,7 +96,6 @@ export default class LocationSelect extends Component {
             {options}
           </div>
         );
-
       }
     }
 

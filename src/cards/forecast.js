@@ -13,7 +13,7 @@ class Forecast extends Component {
     const paddedMin = date.getMinutes().toString().padStart(2, "0");
 
     return paddedHour + ":" + paddedMin;
-  }
+  };
 
   render() {
     return (
