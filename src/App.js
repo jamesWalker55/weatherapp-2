@@ -43,14 +43,8 @@ class App extends Component {
     return defaultLocation;
   }
 
-  refresh = async () => {
-    let data;
-
-    if (this.state.location) {
-      data = await fetchData(this.state.location);
-    } else {
-      data = await fetchData();
-    }
+  refresh = async (location) => {
+    const data = await fetchData(location || this.state.location);
 
     this.setState({
       apiData: data
@@ -65,12 +59,12 @@ class App extends Component {
     this.setState({ choosingLocation: false });
   };
 
-  setLocation = async (location) => {
-    this.setState({ location: location, choosingLocation: false });
-
+  setLocation = (location) => {
     window.sessionStorage.setItem("weather-location", JSON.stringify(location));
 
-    await this.refresh();
+    this.refresh(location);
+    // #setState is asynchronous, order doesn't really matter
+    this.setState({ location: location, choosingLocation: false });
   };
 
   render() {
