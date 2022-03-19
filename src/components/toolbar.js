@@ -11,7 +11,7 @@ export default class Toolbar extends Component {
   render() {
     return (
       <div className='toolbar'>
-        <Button name="Change location" icon={locationIcon} callback={this.props.chooseLocationCallback} />
+        <Button name="Change location" icon={locationIcon} callback={this.props.locationCallback} />
         <Button name="Refresh" icon={refreshIcon} callback={this.props.refreshCallback} animation='rotate' />
       </div>
     );

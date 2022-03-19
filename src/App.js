@@ -89,7 +89,7 @@ class App extends Component {
         <div className='phone'>
           <Toolbar
             refreshCallback={this.reloadApiData}
-            chooseLocationCallback={this.showLocationPopup}
+            locationCallback={this.showLocationPopup}
           />
           <WeatherDisplay apiData={this.state.apiData} location={this.state.location} />
         </div>
