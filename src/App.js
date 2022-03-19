@@ -94,7 +94,7 @@ class App extends Component {
             refreshCallback={this.refresh}
             chooseLocationCallback={this.chooseLocation}
           />
-          <WeatherDisplay apiData={this.state.apiData} />
+          <WeatherDisplay apiData={this.state.apiData} location={this.state.location} />
         </div>
         {locationPopup}
       </div>

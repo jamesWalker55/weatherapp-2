@@ -14,7 +14,7 @@ export default class WeatherDisplay extends Component {
     if (apiData) {
       return (
         <div className='weather-display'>
-          <Header apiData={apiData} />
+          <Header apiData={apiData} location={this.props.location} />
           <Forecast apiData={apiData} />
           <SunAndMoonAlt apiData={apiData} />
           <StarMap apiData={apiData} />
