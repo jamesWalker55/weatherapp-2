@@ -46,8 +46,14 @@ export default class LocationSelect extends Component {
   };
 
   doSearch = async (text) => {
-    const locations = await queryLocation(text);
-    this.setState({ results: locations });
+    if (text.trim().length === 0) {
+      // empty search query
+      this.setState({ results: [] });
+    } else {
+      // normal search query
+      const locations = await queryLocation(text);
+      this.setState({ results: locations });
+    }
   };
 
   componentWillUnmount() {
