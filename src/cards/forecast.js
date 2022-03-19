@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 
+import { timestampToTimeString } from 'helpers/time';
+
 import './common.css';
 import './forecast.css';
-import circleSvgPath from "../assets/circle-info-solid.svg";
+import circleSvgPath from "assets/circle-info-solid.svg";
 import HourlyChart from './parts/hourly-chart';
 
 class Forecast extends Component {
-  getUpdatedTime = () => {
-    const date = new Date(this.props.apiData.current.dt * 1000);
-
-    const paddedHour = date.getHours().toString().padStart(2, "0");
-    const paddedMin = date.getMinutes().toString().padStart(2, "0");
-
-    return paddedHour + ":" + paddedMin;
-  }
-
   render() {
     return (
       <div className="card forecast">
@@ -24,7 +17,7 @@ class Forecast extends Component {
               <image href={circleSvgPath} width="18" height="18" />
             </svg>
           </div>
-          Updated at {this.getUpdatedTime()}
+          Updated at {timestampToTimeString(this.props.apiData.current.dt)}
         </div>
         <h2>Forecast</h2>
         <div className='graphs-container' style={{ position: 'relative' /* for graph axis positioning */ }}>

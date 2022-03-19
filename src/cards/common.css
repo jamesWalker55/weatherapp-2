@@ -17,6 +17,14 @@
   font-weight: bold;
 }
 
+.card.dark {
+  background-color: #000305;
+}
+
+.card.dark h2 {
+  color: #F2F0ECDD;
+}
+
 .meta-info {
   display: flex;
   justify-content: left;

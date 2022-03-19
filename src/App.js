@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import "./app.css";
 
-import Header from './components/header';
-import Forecast from './cards/forecast';
-import SunAndMoonAlt from './cards/sun-and-moon-alt';
-import StarMap from './cards/star-map';
-import APOD from './cards/APOD';
+import Toolbar from 'components/toolbar';
+import WeatherDisplay from './weather-display';
+import LocationSelect from 'components/location-select';
 
-import fetchApiData from './openweathermap';
-
-import tempApiData from './data/temp-api-data.json';
-
+import { fetchData, LOCATIONS } from 'helpers/openweathermap';
+import tempApiData from 'data/temp-api-data.json';
 
 class App extends Component {
   constructor(props) {
@@ -19,42 +15,87 @@ class App extends Component {
     if (this.props.useTestData) {
       this.state = {
         apiData: tempApiData,
+        location: this.getLocation(),
+        choosingLocation: false,
       };
     } else {
       this.state = {
         apiData: null,
+        location: this.getLocation(),
+        choosingLocation: false,
       };
 
-      fetchApiData().then((data) => {
-        this.setState({
-          apiData: data
-        });
-      });
+      this.reloadApiData();
     }
   }
 
+  // get the location from session if set, otherwise default to London
+  getLocation() {
+    const defaultLocation = LOCATIONS.LONDON;
+
+    try {
+      const sessionLocation = JSON.parse(window.sessionStorage.getItem("weather-location"));
+
+      if (sessionLocation) return sessionLocation;
+    } catch (e) {
+      // do nothing
+    }
+
+    return defaultLocation;
+  }
+
+  // fetch data from API and update state
+  reloadApiData = async (location) => {
+    const data = await fetchData(location || this.state.location);
+
+    this.setState({
+      apiData: data
+    });
+  };
+
+  showLocationPopup = () => {
+    this.setState({ choosingLocation: true });
+  };
+
+  closeLocationPopup = () => {
+    this.setState({ choosingLocation: false });
+  };
+
+  // change location of the app then fetch data
+  setLocation = (location) => {
+    window.sessionStorage.setItem("weather-location", JSON.stringify(location));
+
+    this.reloadApiData(location);
+    // #setState is asynchronous, order doesn't really matter
+    this.setState({ location: location, choosingLocation: false });
+  };
+
   render() {
-    if (this.state.apiData) {
-      return (
-        <div className='phone-container'>
-          <div className='phone'>
-            {/*<Toolbar apiData={this.state.apiData} />*/}
-            <Header apiData={this.state.apiData} />
-            <Forecast apiData={this.state.apiData} />
-            <SunAndMoonAlt apiData={this.state.apiData} />
-            <StarMap apiData={this.state.apiData} />
-          	<APOD apiData={tempApiData} />
-          </div>
-        </div>
+    let locationPopup;
+
+    if (this.state.choosingLocation) {
+      locationPopup = (
+        <LocationSelect
+          setLocationCallback={this.setLocation}
+          closeCallback={this.closeLocationPopup}
+        />
       );
     } else {
-      return (
-        <div className='phone-container'>
-          <div className='phone'>
-          </div>
-        </div>
-      );
+      locationPopup = null;
     }
+
+    return (
+      <div className='phone-container'>
+        <div className='phone'>
+          <Toolbar
+            refreshCallback={this.reloadApiData}
+            locationCallback={this.showLocationPopup}
+          />
+          <WeatherDisplay apiData={this.state.apiData} location={this.state.location} />
+        </div>
+        {locationPopup}
+      </div>
+    );
   }
 }
 
