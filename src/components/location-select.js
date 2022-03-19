@@ -58,6 +58,7 @@ export default class LocationSelect extends Component {
 
   componentWillUnmount() {
     // disable interval
+    if (this.timeout) clearTimeout(this.timeout);
   }
 
   closeCallback = (e) => {
