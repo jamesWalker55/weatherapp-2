@@ -25,7 +25,7 @@ class App extends Component {
         choosingLocation: false,
       };
 
-      this.refresh();
+      this.reloadApiData();
     }
   }
 
@@ -43,7 +43,7 @@ class App extends Component {
     return defaultLocation;
   }
 
-  refresh = async (location) => {
+  reloadApiData = async (location) => {
     const data = await fetchData(location || this.state.location);
 
     this.setState({
@@ -51,18 +51,18 @@ class App extends Component {
     });
   };
 
-  chooseLocation = () => {
+  showLocationPopup = () => {
     this.setState({ choosingLocation: true });
   };
 
-  closeLocationSelector = () => {
+  closeLocationPopup = () => {
     this.setState({ choosingLocation: false });
   };
 
   setLocation = (location) => {
     window.sessionStorage.setItem("weather-location", JSON.stringify(location));
 
-    this.refresh(location);
+    this.reloadApiData(location);
     // #setState is asynchronous, order doesn't really matter
     this.setState({ location: location, choosingLocation: false });
   };
@@ -74,7 +74,7 @@ class App extends Component {
       locationPopup = (
         <LocationSelect
           setLocationCallback={this.setLocation}
-          closeCallback={this.closeLocationSelector}
+          closeCallback={this.closeLocationPopup}
         />
       );
     } else {
@@ -85,8 +85,8 @@ class App extends Component {
       <div className='phone-container'>
         <div className='phone'>
           <Toolbar
-            refreshCallback={this.refresh}
-            chooseLocationCallback={this.chooseLocation}
+            refreshCallback={this.reloadApiData}
+            chooseLocationCallback={this.showLocationPopup}
           />
           <WeatherDisplay apiData={this.state.apiData} location={this.state.location} />
         </div>
