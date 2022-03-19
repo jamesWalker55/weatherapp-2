@@ -1,5 +1,5 @@
 const DATA_URL = 'https://api.openweathermap.org/data/2.5/onecall';
-const LOCATION_URL = 'http://api.openweathermap.org/geo/1.0/direct';
+const LOCATION_URL = 'https://api.openweathermap.org/geo/1.0/direct';
 
 const API_KEY = 'b94e53a435a10994c9f671ff48ecbc39';
 

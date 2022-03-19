@@ -17,7 +17,7 @@ class StarMap extends Component {
             scrolling="no"
             marginHeight={0}
             marginWidth={0}
-            src="http://slowe.github.io/VirtualSky/embed?&projection=stereo&keyboard=false&showstarlabels=true&showdate=false&showposition=false&live=true&az=336.5" />
+            src="https://slowe.github.io/VirtualSky/embed?&projection=stereo&keyboard=false&showstarlabels=true&showdate=false&showposition=false&live=true&az=336.5" />
         </div>
       </div>
     );
