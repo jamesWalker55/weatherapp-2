@@ -29,6 +29,7 @@ class App extends Component {
     }
   }
 
+  // get the location from session if set, otherwise default to London
   getLocation() {
     const defaultLocation = LOCATIONS.LONDON;
 
@@ -43,6 +44,7 @@ class App extends Component {
     return defaultLocation;
   }
 
+  // fetch data from API and update state
   reloadApiData = async (location) => {
     const data = await fetchData(location || this.state.location);
 
@@ -59,6 +61,7 @@ class App extends Component {
     this.setState({ choosingLocation: false });
   };
 
+  // change location of the app then fetch data
   setLocation = (location) => {
     window.sessionStorage.setItem("weather-location", JSON.stringify(location));
 
