@@ -25,6 +25,7 @@ export default class DailyPicture extends Component {
     };
   }
 
+  // when the component is create, fetch the image
   componentDidMount() {
     fetchPictureUrl().then((imgPath) => {
       this.setState({ imgPath: imgPath });

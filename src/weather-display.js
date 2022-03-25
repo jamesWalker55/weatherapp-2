@@ -12,6 +12,7 @@ export default class WeatherDisplay extends Component {
     const apiData = this.props.apiData;
 
     if (apiData) {
+      // data is received, render the app
       return (
         <div className='weather-display'>
           <Header apiData={apiData} location={this.props.location} />
@@ -22,6 +23,7 @@ export default class WeatherDisplay extends Component {
         </div>
       );
     } else {
+      // if data isn't received yet, render an empty div
       return (
         <div className='weather-display'>
         </div>

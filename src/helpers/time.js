@@ -1,4 +1,4 @@
-// convert a timestamp like `1647650060` to a time string like `00:34`
+/** convert a timestamp like `1647650060` to a time string like `00:34` */
 export function timestampToTimeString(timestamp) {
   const date = new Date(timestamp * 1000);
 

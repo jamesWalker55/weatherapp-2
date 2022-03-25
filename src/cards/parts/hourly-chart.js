@@ -19,12 +19,14 @@ ChartJS.register(
   LineElement,
 );
 
+/** display hourly api data as a chart */
 export default class HourlyChart extends Component {
   static defaultProps = {
     title: "[untitled]",
     showDates: false,
   };
 
+  /** convert hourly apiData to chart.js's format */
   getChartData() {
     const data = this.props.apiData.hourly;
     const attribute = this.props.source;
@@ -64,11 +66,13 @@ export default class HourlyChart extends Component {
     hPa: 'hPa',
   };
 
+  /** get the symbol that represents the unit of this graph, e.g. °C, hPa */
   getUnitSymbol() {
     const map = this.constructor.UNIT_SYMBOL_MAP;
     return map[this.props.unit];
   }
 
+  /** chart.js settings for the main graph display */
   getMainChartOptions() {
     return {
       layout: {
@@ -119,6 +123,7 @@ export default class HourlyChart extends Component {
     };
   };
 
+  /** chart.js settings for the axis graph display */
   getAxisChartOptions() {
     return {
       layout: {
@@ -150,13 +155,16 @@ export default class HourlyChart extends Component {
     const chartData = this.getChartData();
     return (
       <div className="chart">
+        {/* the axis graph display, this displays the numbers on the left side */}
         <div className='chartjs axis'>
           <Line options={this.getAxisChartOptions()} data={chartData} />
         </div>
+        {/* the graph title on the top right of the graph */}
         <span className='chart-title'>
           {this.props.title}
           {this.getUnitSymbol() ? ` (${this.getUnitSymbol()})` : ``}
         </span>
+        {/* the main graph display, this is horizontally scrollable */}
         <div className='chartjs main'>
           <Line options={this.getMainChartOptions()} data={chartData} />
         </div>

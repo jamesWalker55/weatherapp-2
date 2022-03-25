@@ -9,6 +9,7 @@ import inactiveArc from 'assets/sun-moon-inactive.png';
 import sunIcon from 'assets/sun-solid.svg';
 import moonIcon from 'assets/moon-solid.svg';
 
+/** the graph display with a moving sun/moon icon */
 class Arc extends Component {
   constructor(props) {
     super(props);
@@ -91,10 +92,10 @@ class Arc extends Component {
         </div>
       );
     }
-
   }
 }
 
+/** the moving sun/moon icon for the Arc component */
 class ArcIcon extends Component {
   // given the progress from 0 to 1, calculate the x, y position of the icon
   getArcIconPosition(progress) {
@@ -121,6 +122,7 @@ class ArcIcon extends Component {
     const [x, y] = this.getArcIconPosition(this.props.progress);
 
     return (
+      // hard-code position of icon using absolute positioning
       <svg className='icon' width="20" height="20" style={{ top: `${y * 100}%`, left: `${x * 100}%` }}>
         <image href={this.props.icon} width="20" height="20" />
       </svg>
@@ -128,7 +130,9 @@ class ArcIcon extends Component {
   }
 }
 
+/** the card */
 export default class SunAndMoonAlt extends Component {
+  /** get the current/next rise and set times from the given apiData */
   getRiseSetTimes = () => {
     const now = this.props.apiData.current.dt;
     const days = this.props.apiData.daily;

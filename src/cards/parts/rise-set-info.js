@@ -7,6 +7,7 @@ import './rise-set-info.css';
 import upIcon from 'assets/arrow-up-solid.svg';
 import downIcon from 'assets/arrow-down-solid.svg';
 
+/** display rise and set times for the given sun/moon */
 export default class RiseSetInfo extends Component {
   render() {
     return (

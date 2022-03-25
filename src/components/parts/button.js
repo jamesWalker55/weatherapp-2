@@ -11,6 +11,7 @@ export default class Toolbar extends Component {
     };
   }
 
+  /** wrapper for the callback to handle potential errors, and to prevent clicking the button again while active */
   callback = async () => {
     if (this.state.active) return;
 
@@ -28,6 +29,8 @@ export default class Toolbar extends Component {
   render() {
     let className;
 
+    // when the button is active, add the animation class to it
+    // animations are defined in button.css
     if (this.state.active && this.props.animation) {
       className = `button ${this.props.animation}`;
     } else {

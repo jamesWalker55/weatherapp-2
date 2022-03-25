@@ -19,17 +19,19 @@ class App extends Component {
         choosingLocation: false,
       };
     } else {
+      // if not using test data, set it to null for now
       this.state = {
         apiData: null,
         location: this.getLocation(),
         choosingLocation: false,
       };
 
+      // this will update state.apiData asynchronously
       this.reloadApiData();
     }
   }
 
-  // get the location from session if set, otherwise default to London
+  /** get the location from session if set, otherwise default to London */
   getLocation() {
     const defaultLocation = LOCATIONS.LONDON;
 
@@ -44,7 +46,7 @@ class App extends Component {
     return defaultLocation;
   }
 
-  // fetch data from API and update state
+  /** fetch data from API and update state */
   reloadApiData = async (location) => {
     const data = await fetchData(location || this.state.location);
 
@@ -53,15 +55,17 @@ class App extends Component {
     });
   };
 
+  /** display the location chooser popup */
   showLocationPopup = () => {
     this.setState({ choosingLocation: true });
   };
 
+  /** hide the location chooser popup */
   closeLocationPopup = () => {
     this.setState({ choosingLocation: false });
   };
 
-  // change location of the app then fetch data
+  /** change location of the app then fetch data */
   setLocation = (location) => {
     window.sessionStorage.setItem("weather-location", JSON.stringify(location));
 
@@ -73,6 +77,7 @@ class App extends Component {
   render() {
     let locationPopup;
 
+    // display the popup if `choosingLocation` is true
     if (this.state.choosingLocation) {
       locationPopup = (
         <LocationSelect

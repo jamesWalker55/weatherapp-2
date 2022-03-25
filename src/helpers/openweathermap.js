@@ -3,6 +3,7 @@ const LOCATION_URL = 'https://api.openweathermap.org/geo/1.0/direct';
 
 const API_KEY = 'b94e53a435a10994c9f671ff48ecbc39';
 
+/** hard-coded locations, this will be the default location for new users */
 export const LOCATIONS = {
   LONDON: {
     "name": "London",
@@ -13,6 +14,7 @@ export const LOCATIONS = {
   },
 };
 
+/** fetch data from openweatherapp and return the fetched data */
 export async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
   console.log("Fetching API data from openweathermap");
 
@@ -40,6 +42,7 @@ export async function fetchData(location = LOCATIONS.LONDON, key = API_KEY) {
   return data;
 }
 
+/** given a location name, find the position (longitude, latitude) of that location */
 export async function queryLocation(locationName, country = "gb", limit = 5, key = API_KEY) {
   if (locationName.includes(',')) throw `Location name must not contain commas: ${locationName}`;
 

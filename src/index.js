@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* don't use test data for the app (test data at `src/data/temp-api-data.json`) */}
     <App useTestData={false} />
   </React.StrictMode>,
   document.getElementById('root')

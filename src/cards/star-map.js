@@ -10,6 +10,7 @@ class StarMap extends Component {
         <h2>Star Map (Interactive)</h2>
 
         <div className='frame-container'>
+          {/* iframe for the VirtualSky widget */}
           <iframe
             width="100%"
             height="400rem"

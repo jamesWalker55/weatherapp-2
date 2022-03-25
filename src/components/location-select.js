@@ -4,6 +4,7 @@ import { queryLocation } from 'helpers/openweathermap';
 
 import './location-select.css';
 
+/** a single location button */
 class LocationOption extends Component {
   setLocation = () => {
     this.props.setLocationCallback(this.props.location);
@@ -23,6 +24,7 @@ class LocationOption extends Component {
   }
 }
 
+/** the location chooser popup */
 export default class LocationSelect extends Component {
   constructor(props) {
     super(props);
@@ -73,6 +75,7 @@ export default class LocationSelect extends Component {
   render() {
     let results;
 
+    // build the list of locations
     if (this.state.results) {
       if (this.state.results.length === 0) {
         results = (
