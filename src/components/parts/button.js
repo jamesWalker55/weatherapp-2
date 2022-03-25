@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './button.css';
 
-export default class Toolbar extends Component {
+export default class Button extends Component {
   constructor(props) {
     super(props);
 
