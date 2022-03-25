@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "./static/css/main.4449703f.css",
+    "main.js": "./static/js/main.b99a59b7.js",
+    "static/js/787.74e6b0f6.chunk.js": "./static/js/787.74e6b0f6.chunk.js",
+    "static/media/sun-moon-active.png": "./static/media/sun-moon-active.1ddbe6c22bc172af6c66.png",
+    "static/media/sun-moon-inactive.png": "./static/media/sun-moon-inactive.c937731c880df66b7e5d.png",
+    "static/media/sun-solid.svg": "./static/media/sun-solid.9753cb476960f5b24271240d6f696464.svg",
+    "static/media/arrows-rotate-solid.svg": "./static/media/arrows-rotate-solid.72b161dec75a345a20277a09c04f8031.svg",
+    "index.html": "./index.html",
+    "static/media/circle-info-solid.svg": "./static/media/circle-info-solid.ae87f5d38791566c38449ef469319338.svg",
+    "static/media/arrow-up-solid.svg": "./static/media/arrow-up-solid.ef7f22c6cc02cf82cc6eefb586ad69d6.svg",
+    "static/media/location-dot-solid.svg": "./static/media/location-dot-solid.5bf132828a7190460ddbab6fcb020ef2.svg",
+    "static/media/arrow-down-solid.svg": "./static/media/arrow-down-solid.6d60770749d5e8d1e580b8dd5a9cf7db.svg",
+    "static/media/moon-solid.svg": "./static/media/moon-solid.fc2b9ecc92c6b72f1609d488ad2973da.svg",
+    "main.4449703f.css.map": "./static/css/main.4449703f.css.map",
+    "main.b99a59b7.js.map": "./static/js/main.b99a59b7.js.map",
+    "787.74e6b0f6.chunk.js.map": "./static/js/787.74e6b0f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4449703f.css",
+    "static/js/main.b99a59b7.js"
+  ]
+}
