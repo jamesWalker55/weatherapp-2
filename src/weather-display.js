@@ -7,6 +7,10 @@ import SunAndMoonAlt from './cards/sun-and-moon-alt';
 import StarMap from './cards/star-map';
 import DailyPicture from './cards/daily-picture';
 
+/*
+ * Read more about the design decisions behind the app at README.md
+ */
+
 export default class WeatherDisplay extends Component {
   render() {
     const apiData = this.props.apiData;

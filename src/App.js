@@ -8,6 +8,10 @@ import LocationSelect from 'components/location-select';
 import { fetchData, LOCATIONS } from 'helpers/openweathermap';
 import tempApiData from 'data/temp-api-data.json';
 
+/*
+ * Read more about the design decisions behind the app at README.md
+ */
+
 class App extends Component {
   constructor(props) {
     super(props);

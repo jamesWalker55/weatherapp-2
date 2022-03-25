@@ -5,6 +5,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/*
+ * Read more about the design decisions behind the app at README.md
+ */
+
 ReactDOM.render(
   <React.StrictMode>
     {/* don't use test data for the app (test data at `src/data/temp-api-data.json`) */}
